@@ -1,0 +1,33 @@
+<mat-spinner *ngIf='loading'></mat-spinner>
+<div multi='true' *ngIf='products.length > 0 && !loading'>
+  <mat-card class="example-card" *ngFor='let product of products'>
+      <div class='product-body'>
+        <mat-card-header>
+          <mat-card-title>{{ product.title }}</mat-card-title>
+        </mat-card-header>
+        <div class='product-image'>
+          <img [src]='product.imagePath' [alt]='product.title'>
+        </div>
+        <mat-card-content>
+          <p>{{ product.description }}</p>
+          <p>$ {{ product.price }}</p>
+          <p>{{ product.location }}</p>
+        </mat-card-content>
+        <mat-card-actions *ngIf='userIsAuthenticated'>
+        <button id='contact' *ngIf='userId !== product.creator' mat-raised-button (click)='onContact(product.id)'>Contact</button>
+          <div id='actions' *ngIf='userId === product.creator'>
+            <a mat-raised-button color='primary' [routerLink]="['/edit', product.id]">Edit</a>
+            <button mat-raised-button color='warn' (click)='onDelete(product.id)'>Delete</button>
+          </div>
+        </mat-card-actions>
+        <!-- <div *ngIf='userId'>
+          <p>{{ product.creator }}</p>
+        </div> -->
+      </div>
+  </mat-card>
+</div>
+<mat-paginator [length]='totalPages' [pageSizeOptions]='pageSizeOptions' [pageSize]='productsPerpage' (page)='changedPage($event)' *ngIf='products.length > 0'></mat-paginator>
+<p *ngIf='products.length <= 0 && !loading'>no product yet!</p>
+
+
+

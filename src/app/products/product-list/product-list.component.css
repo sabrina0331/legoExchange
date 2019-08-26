@@ -1,0 +1,42 @@
+.example-card {
+  width: calc(45%);
+  height: 400px;
+  margin-top: 1rem;
+  display: inline-block;
+
+}
+
+.product-body {
+  display: inline-block;
+  vertical-align: top;
+}
+
+#contact, #actions{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+}
+
+#contact {
+  background-color: #ffd000;
+}
+
+
+mat-raised-button {
+  text-align: center
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+.product-image {
+  width: 80%;
+}
+.product-image, img{
+  width: 100%;
+}
+
+mat-paginator {
+ margin-top: 1rem;
+}

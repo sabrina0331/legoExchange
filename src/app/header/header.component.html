@@ -1,0 +1,15 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span class='logo'>Lego Exchange</span>
+    <span class='spacer'></span>
+    <ul>
+      <li>
+        <a mat-button routerLink='/' >Browser</a>
+        <a *ngIf='userIsAuthenticated' mat-button routerLink='/create' routerLinkActive='mat-accent'>Sell</a>
+        <a *ngIf='!userIsAuthenticated' mat-button routerLink='/login' routerLinkActive='mat-accent'>Login</a>
+        <a *ngIf='!userIsAuthenticated' mat-button routerLink='/register' routerLinkActive='mat-accent'>Register</a>
+        <button *ngIf='userIsAuthenticated' mat-button (click)='onLogout()'>Logout</button>
+      </li>
+    </ul>
+  </mat-toolbar-row>
+</mat-toolbar>
